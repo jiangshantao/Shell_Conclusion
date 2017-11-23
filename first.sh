@@ -1,4 +1,4 @@
-4#!/bin/sh first.sh
+#!/bin/sh first.sh
 echo 'hello world!'
 
 # shell没有单行注释 每一行都要加一个"#"
@@ -15,8 +15,8 @@ your_name="jst"
 
 # 除了显示的定义变量 还可以用变量给语句赋值 如⬇️
 echo '----------------'
-echo 'The JST_Project directory include:'
-for file in `ls /Users/jiangshantao/JST_Project/`
+echo 'The JST_Project directory include:\n'
+for file in `ls /Users/jiangshantao/`
 do
 	echo $file
 done
@@ -35,6 +35,47 @@ done
 #  如果不给lanuage变量加花括号，写成echo "I am good at $lanuageScript"，
 #  解释器就会把$lanuageScript当成一个变量（其值为空），代码执行结果就不是我们期望的样子了。
 #  推荐给所有变量加上花括号，这是个好的编程习惯。IntelliJ IDEA编写shell script时，IDE就会提示加花括号。
+
+printf "======================== \n"
+
+# 3.字符串
+#   字符串是shell编程中最常用的数据类型（处理数字和字符串也没啥好用的了）
+#   ※单引号‘’里的任何字符都会原样输出，单引号字符串中的变量是无效的 ※单引号字符串中不能出现单引号，对单引号使用转义符也不行
+str_1='this is a srting'
+
+#	※双引号“”里可以有变量，可以有转义符
+my_last_name="Jiang"
+str_2="Hello! I know your last name,It's \"$my_last_name\" \n " 
+echo $str_2
+
+#	拼接字符串
+my_name_1="jiangshantao"
+greeting_1="hello,$my_name_1 !"
+greeting_2="hello,${my_name_1} !"
+echo $greeting_1 $greeting_2
+
+#   获取字符串长度
+string_a="abcd"
+echo ${#string_a} #输出4
+
+#	提取字符串
+string_b="bytedance is a great company!"
+echo ${string_b:1:4} #输出yted
+
+#	查找字符串
+#expr index "$string_b" is
+expr index 'sarasara' a
+
+
+
+
+
+
+
+
+
+
+
 
 
 
