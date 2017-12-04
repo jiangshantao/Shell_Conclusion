@@ -6,13 +6,19 @@ echo "a:$a"
 b=4 
 echo "b:$b \n"
 
+#执行算数运算有两种方法:
+#1.用"expr"命令
+#2.用"$[]"的形式#这种形式非常方便 适用于在脚本中适用
+
 #注意:运算符与数字要有空格 
 #`expr number_1 + number_2` 是对的
 #`expr number_1+number_2` 是错的 最后输出的只是number_1+number_2的表达式 而不是值
 
 #加法
 addition=`expr $a + $b`
+addition_1=$[$a + $b]
 echo "a+b: $addition"
+echo "use \$[] addition_1: $addition_1"
 
 #减法
 subduction=`expr $a - $b`
@@ -50,17 +56,17 @@ fi
 # -eq 检查两个数是否相等 相等返回true 反之返回false
 if [ $a -eq $b ]
 then
-	echo "a -eq b : $a等于$b"
+	echo "a -eq b: $a等于$b"
 else
-	echo "a -eq b : $a不等于$b"
+	echo "a -eq b: $a不等于$b"
 fi
 
 # -ne 检查两个数是否相等 不相等返回true 反之返回false
 if [ $a -ne $b ]
 then
-	echo "a -ne b : $a不等于$b"
+	echo "a -ne b: $a不等于$b"
 else
-	echo "a -ne b : $a等于$b"
+	echo "a -ne b: $a等于$b"
 fi
 
 # -gt 检查左边的数是否大于右边 如果是返回true 反之返回false
