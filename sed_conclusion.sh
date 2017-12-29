@@ -87,3 +87,31 @@ echo ''
 
 echo 'test↓'
 sed '/fox/s/dog/hehe/' test_data_diff.txt
+
+#二.打印命令p
+#"p"命令直接将读到的命令直接打印出来
+
+sed p test_data.txt #运行后将打印两遍 因为sed默认将读到的内容输出 使用"-n"可以禁用默认输出
+
+echo ''
+
+sed -n p test_data.txt 
+
+echo ''
+
+#1.范围限制,在"p"命令前加上增加范围限制,数字表示具体的行数,+数字表示增量,$表示最后一行,~表示间隔的行数
+
+sed -n 1p test_data.txt #只打印test_data.txt文件中的第一行
+
+echo ''
+
+sed -n 1,2p test_data.txt #打印第1-2行
+
+echo ''
+
+sed -n '2,$p' test_data.txt #打印第3到最后一行
+
+echo 'hehe'
+
+sed -n '/cat/p' test_data.txt #只打印带有"cat"的行
+
